@@ -1,0 +1,162 @@
+@import 'base/mixins';
+@import 'base/variables';
+
+
+body {
+    margin-top: 20px;
+}
+.rehabilitation {
+    position: relative;
+    width: 1140px;
+    margin: 0 auto;
+    &__title {
+        text-align: center;
+        font-size: 32px;
+    }
+    &__bloks {
+        margin-top: 50px;
+        display: grid;
+        grid-template-rows: 200px 50px 200px;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 50px  50px;
+    
+    }
+    &__blok {
+        position: relative;
+        background-color: bisque;
+        border-radius: 20px;
+        padding: 30px;
+        &:nth-child(3) {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            background-color: #fff;
+        }
+        &:nth-child(1) {
+            margin-left: 50px;
+            margin-right: 100px;
+        }
+        &:nth-child(2) {
+            margin-right: 200px;
+        }
+        &:nth-child(4) {
+            margin-left: 200px;
+            margin-right: -150px;
+        }
+        &:nth-child(5) {
+            margin-left: 200px;
+            margin-right: 50px;
+        }
+        &:not(:nth-child(3)) {
+            z-index: -1;
+        }
+        &-desc {
+            position: relative;
+        }
+    }
+    &__arrows {
+        position: relative;
+        display: flex;
+        transform: translateY(-50%);
+    }
+    &__arrow {
+        
+        position: relative;
+        background-color:aqua;
+        border-top: 40px solid transparent; 
+        border-bottom: 40px solid transparent;
+        border-left: 45px solid;
+        width: calc(1140px * 25 / 100);
+        &:nth-child(2n) {
+            background-color: #babaff;
+
+            border-left: 40px solid aqua;
+        }
+        &:nth-child(2n+1) {
+            border-left: 40px solid #babaff;
+            .point {
+                top: -90px;
+            }
+        }
+
+        &:first-child {
+            position: relative;
+            border-left: 40px solid aqua;
+            &:after {
+                content: '';
+                position: absolute;
+                left: -41px;
+                top: -1px;
+                border-top: 42px solid #fff;
+                border-right: 40px solid transparent;
+            }       
+            &:before {
+                content: '';       
+                position: absolute;
+                left: -41px;
+                top: -41px;
+                border-top: 41px solid transparent;
+                border-left: 40px solid white;
+            }
+ 
+        
+        }
+        &:last-child {
+            position: relative;
+
+            &:after {
+                content: '';
+                position: absolute;
+                right: -1px;
+                top: -1px;
+                border-top: 42px solid transparent;
+                border-right: 40px solid white;
+            }       
+            &:before {
+                content: '';       
+                position: absolute;
+                right: -1px;
+                top: -41px;
+                border-top: 41px solid white;
+                border-left: 40px solid transparent;
+            }
+            
+        }
+        &-day {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+        }
+
+        &-point {
+            position: absolute;
+            top: -4px;
+            left: 8%;
+            width: 1px;
+            height: 85px;
+            background-color: #000;
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -4px;
+                width: 9px;
+                height: 9px;
+                border-radius: 50%;
+                background-color: #000;
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                top: 85px;
+                left: -4px;
+                width: 9px;
+                height: 9px;
+                border-radius: 50%;
+                background-color: #000;
+            }
+
+        }
+    }
+
+}
